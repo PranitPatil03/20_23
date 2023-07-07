@@ -1,19 +1,18 @@
 import Link from "next/link";
 import { prisma } from "../db";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation"
 
 async function createTodo(data:FormData) {
   "use server";
 
-  const title=data.get("title")?.valueOf;
+  const title=data.get("title")?.valueOf();
 
-  if(typeof title!=="string" ){
+  if(typeof title!=="string" || title.length===0){
     throw new Error ("Invaild Title ")
   }
 
   await prisma.todo.create({data:{title,complete:false}})
   redirect("/")
-
 }
 
 export default function page() {
