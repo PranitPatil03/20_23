@@ -19,10 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClientOnly>
-          {/* <Modal isOpen /> */}
-          <Navbar />
-        </ClientOnly>
+          <Modal isOpen/>
+          <Navbar/>
         {children}
       </body>
     </html>

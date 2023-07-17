@@ -4,7 +4,7 @@ import './Box.css'
 
 function Box({value,onClick}) {
 
-    const style = value === "X" ? "box x" :"box o";  
+    const style = value === "X" ? "box X" :"box O";  
 
   return (
     <div>
